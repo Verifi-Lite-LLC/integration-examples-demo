@@ -67,4 +67,3 @@ We believe in "learning by doing." Explore the following executable examples to 
 ---
 
 *Proudly built for developers by the VerifiLite Team.*
-# integration-demo-examples
