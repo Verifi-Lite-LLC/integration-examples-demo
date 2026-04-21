@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifilite KYC Verification</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            height: 700px;
+            background: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Essential for KYC: Allow full height and no borders */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .header {
+            padding: 15px;
+            text-align: center;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            font-weight: 600;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">Identity Verification</div>
+        
+        <iframe 
+            src="https://widget.verifilite.com/?token=cuMp3RlTM30RKe4T08kzeQ%3D%3D%3AD5%2FB1y0wRpkDWcq%2FPaUnhA%3D%3D%3AIQxH3vMsON%2BNcUy%2FX2noXGb0cMmGaP53CSAFd0g%2FVjeYw6phxOjr86kpkqr%2BHoKVJ%2BTbXuZiimKTpiWUBYMLCvZrNwVIBsdfc%2BKuagGJ9HlPFJHyKThxASGv91Rmp43w7nByVp3Gzc%2Fka0JHJOVpD71xACqlEUItr6aDjzhoXUed&id=fasdfasdf" 
+            allow="camera; microphone; geolocation; payment"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <script>
+        // Listener to handle messages sent from Verifilite widget
+        window.addEventListener('message', function(event) {
+            // Verify the origin for security
+            if (event.origin !== "https://widget.verifilite.com") return;
+
+            console.log("Message received from widget:", event.data);
+
+            // Logic for when KYC is finished
+            if (event.data.type === 'VERIFILITE_KYC_COMPLETE') {
+                alert("Verification Successful!");
+                // You can redirect the parent page here:
+                // window.location.href = "/success";
+            }
+        }, false);
+    </script>
+</body>
+</html>

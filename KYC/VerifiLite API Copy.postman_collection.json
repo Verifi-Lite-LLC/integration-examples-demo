@@ -1,0 +1,432 @@
+{
+  "info": {
+    "_postman_id": "e2d64d8c-10c6-474c-b776-5b0c065c67de",
+    "name": "VerifiLite API Copy",
+    "description": "Postman collection for the VerifiLite Widget 2.0 project.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "28462639",
+    "_collection_link": "https://go.postman.co/collection/28462639-e2d64d8c-10c6-474c-b776-5b0c065c67de?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "KYC",
+      "item": [
+        {
+          "name": "Get Merchant Permissions",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{x-key}}",
+                "description": "Optional token",
+                "type": "text"
+              },
+              {
+                "key": "x-api-secret",
+                "value": "{{x-secret}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/keys/get-key-permissions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "keys",
+                "get-key-permissions"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Inquiry",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "",
+                "description": "Optional token",
+                "type": "text"
+              },
+              {
+                "key": "x-api-secret",
+                "value": "",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"fullName\": \"dfasfsa\",\n    \"dateOfBirth\": \"fasdfsaf\",\n    \"country\": \"fasdfasfsadf\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/inquiry/create/:inquiryId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "inquiry",
+                "create",
+                ":inquiryId"
+              ],
+              "variable": [
+                {
+                  "key": "inquiryId",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "add User Meta",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{apiKey}}",
+                "type": "text"
+              },
+              {
+                "key": "x-api-secret",
+                "value": "{{apiSecret}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"fullName\": \"John Doe\",\n    \"dateOfBirth\": \"1990-01-01\",\n    \"country\": \"Pakistan\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/inquiry/user-meta/:inquiryId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "inquiry",
+                "user-meta",
+                ":inquiryId"
+              ],
+              "variable": [
+                {
+                  "key": "inquiryId",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Submit Inquiry (Complete)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{apiKey}}",
+                "description": "Optional token",
+                "type": "text"
+              },
+              {
+                "key": "x-api-secret",
+                "value": "{{apiSecret}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "submissionId",
+                  "value": "{{inquiryId}}",
+                  "type": "text"
+                },
+                {
+                  "key": "fullName",
+                  "value": "John Doe",
+                  "type": "text"
+                },
+                {
+                  "key": "country",
+                  "value": "Pakistan",
+                  "type": "text"
+                },
+                {
+                  "key": "dateOfBirth",
+                  "value": "1990-01-01",
+                  "type": "text"
+                },
+                {
+                  "key": "idFront",
+                  "type": "file",
+                  "value": null
+                },
+                {
+                  "key": "idBack",
+                  "type": "file",
+                  "value": null
+                },
+                {
+                  "key": "drivingLicenceFront",
+                  "type": "file",
+                  "value": null
+                },
+                {
+                  "key": "drivingLicenceBack",
+                  "type": "file",
+                  "value": null
+                },
+                {
+                  "key": "video",
+                  "type": "file",
+                  "value": null
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/inquiry/submit/:inquiryId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "inquiry",
+                "submit",
+                ":inquiryId"
+              ],
+              "variable": [
+                {
+                  "key": "inquiryId",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Submit Single Document",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{x-key}}",
+                "description": "Optional token",
+                "type": "text"
+              },
+              {
+                "key": "x-api-secret",
+                "value": "{{x-secret}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "fullName",
+                  "value": "John Doe",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "country",
+                  "value": "Pakistan",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "dateOfBirth",
+                  "value": "1990-01-01",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "documentType",
+                  "value": "ID_CARD",
+                  "type": "text",
+                  "description": "ID_CARD, PASSPORT, DRIVING_LICENSE"
+                },
+                {
+                  "key": "idFront",
+                  "type": "file",
+                  "value": null
+                },
+                {
+                  "key": "idBack",
+                  "type": "file",
+                  "value": null
+                },
+                {
+                  "key": "passport",
+                  "type": "file",
+                  "value": null
+                },
+                {
+                  "key": "photo",
+                  "type": "file",
+                  "value": null
+                },
+                {
+                  "key": "drivingLicenceFront",
+                  "type": "file",
+                  "value": null
+                },
+                {
+                  "key": "drivingLicenceBack",
+                  "type": "file",
+                  "value": null
+                },
+                {
+                  "key": "video",
+                  "type": "file",
+                  "value": null
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/inquiry/submit-single/:inquiryId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "inquiry",
+                "submit-single",
+                ":inquiryId"
+              ],
+              "variable": [
+                {
+                  "key": "inquiryId",
+                  "value": "23r235rr32r2r23r32r3r3r3"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Complete Inquiry",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{token}}",
+                "description": "Optional token",
+                "type": "text"
+              },
+              {
+                "key": "x-api-secret",
+                "value": "",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/inquiry/:inquiryId/complete",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "inquiry",
+                ":inquiryId",
+                "complete"
+              ],
+              "variable": [
+                {
+                  "key": "inquiryId",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Inquiry Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{x-key}}",
+                "description": "Optional token",
+                "type": "text"
+              },
+              {
+                "key": "x-api-secret",
+                "value": "{{x-secret}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/inquiry/detail/:inquiryId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "inquiry",
+                "detail",
+                ":inquiryId"
+              ],
+              "variable": [
+                {
+                  "key": "inquiryId",
+                  "value": "999"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://service.verifilite.com/v1",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "apiKey",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "apiSecret",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "x-key",
+      "value": "",
+      "type": "default"
+    },
+    {
+      "key": "x-secret",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}
